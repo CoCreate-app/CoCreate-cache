@@ -114,7 +114,7 @@ navigator.serviceWorker.addEventListener("message", (event) => {
                 })
             } else {
                 // TODO: handle files not retuned by @cocreate/file-server using the files header cache stratergy
-                console.log('Send to fetch', { pathname, organization, lastModified })
+                // console.log('Send to fetch', { pathname, organization, lastModified })
                 // fetch(file)
                 //     .then((response) => {
                 //         // Handle the response as needed
