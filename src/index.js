@@ -27,7 +27,13 @@ function putFile(cacheName, data) {
                 if (modifiedOn instanceof Date)
                     modifiedOn = modifiedOn.toISOString()
 
-                const fileResponse = new Response(data.src, {
+                let source = data.src
+                if (data['content-type'].startsWith('image/') || data['content-type'].startsWith('audio/') || data['content-type'].startsWith('video/')) {
+                    source = source.replace(/^data:image\/(png|jpeg|jpg);base64,/, '');
+                    source = new TextEncoder().encode(source);
+                    source = new Blob([source], { type: data['content-type'] });
+                }
+                const fileResponse = new Response(source, {
                     headers: {
                         'Content-Type': data['content-type'],
                         'organization': data.organization_id,
@@ -72,13 +78,16 @@ if (cacheBtn) {
 }
 
 function fileChange(data) {
-    if (data.status === 'received' && data.clientId === socket.clientId)
+    if (data.array !== 'files') // test
         return
-    if (!data.array === 'files' || !data.object)
+    if (!data.object || !data.object.length)
+        return
+    if (data.sync)
         return
 
-    for (let i = 0; i < data.object.length; i++)
+    for (let i = 0; i < data.object.length; i++) {
         putFile('dynamic-v2', data.object[i])
+    }
 }
 
 if ('serviceWorker' in navigator) {
@@ -114,6 +123,8 @@ navigator.serviceWorker.addEventListener("message", (event) => {
                 })
             } else {
                 // TODO: handle files not retuned by @cocreate/file-server using the files header cache stratergy
+
+
                 // console.log('Send to fetch', { pathname, organization, lastModified })
                 // fetch(file)
                 //     .then((response) => {
