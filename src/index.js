@@ -28,11 +28,19 @@ function putFile(cacheName, data) {
                     modifiedOn = modifiedOn.toISOString()
 
                 let source = data.src
-                if (data['content-type'].startsWith('image/') || data['content-type'].startsWith('audio/') || data['content-type'].startsWith('video/')) {
+
+                if (/^[A-Za-z0-9+/]+[=]{0,2}$/.test(source)) {
                     source = source.replace(/^data:image\/(png|jpeg|jpg);base64,/, '');
-                    source = new TextEncoder().encode(source);
-                    source = new Blob([source], { type: data['content-type'] });
+                    source = atob(source);
+                    const binaryData = new Uint8Array(source.length);
+
+                    for (let i = 0; i < source.length; i++) {
+                        binaryData[i] = source.charCodeAt(i);
+                    }
+
+                    source = new Blob([binaryData], { type: data['content-type'] });
                 }
+
                 const fileResponse = new Response(source, {
                     headers: {
                         'Content-Type': data['content-type'],
