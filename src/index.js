@@ -115,7 +115,7 @@ navigator.serviceWorker.addEventListener("message", (event) => {
             let { organization, lastModified } = event.data.returnedFromCache[file];
             if (organization && lastModified) {
                 socket.send({
-                    method: 'read.object',
+                    method: 'object.read',
                     array: 'files',
                     $filter: {
                         query: [
