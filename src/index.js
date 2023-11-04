@@ -99,10 +99,10 @@ function fileChange(data) {
 }
 
 if ('serviceWorker' in navigator) {
-    socket.listen('create.object', (data) => fileChange(data));
-    socket.listen('read.object', (data) => fileChange(data));
-    socket.listen('update.object', (data) => fileChange(data));
-    socket.listen('delete.object', (data) => fileChange(data));
+    socket.listen('object.create', (data) => fileChange(data));
+    socket.listen('object.read', (data) => fileChange(data));
+    socket.listen('object.update', (data) => fileChange(data));
+    socket.listen('object.delete', (data) => fileChange(data));
 }
 
 navigator.serviceWorker.addEventListener("message", (event) => {
@@ -122,7 +122,8 @@ navigator.serviceWorker.addEventListener("message", (event) => {
                             { key: 'pathname', operator: '$eq', value: pathname },
                             { key: 'modified.on', operator: '$gt', value: lastModified }
                         ]
-                    }
+                    },
+                    status: 'await'
                 }).then((data) => {
                     if (data.object && data.object[0]) {
                         fileChange(data)
@@ -148,15 +149,15 @@ navigator.serviceWorker.addEventListener("message", (event) => {
     }
 });
 
-window.addEventListener('load', function () {
-    if ('serviceWorker' in navigator) {
-        navigator.serviceWorker.ready.then(function (registration) {
-            if (registration.active) {
-                // Send a message to the service worker to execute a function.
-                registration.active.postMessage({ action: 'checkCache' });
-            }
-        });
-    }
-});
+// window.addEventListener('load', function () {
+//     if ('serviceWorker' in navigator) {
+//         navigator.serviceWorker.ready.then(function (registration) {
+//             if (registration.active) {
+//                 // Send a message to the service worker to execute a function.
+//                 registration.active.postMessage({ action: 'checkCache' });
+//             }
+//         });
+//     }
+// });
 
 export { putFile, deleteFile, deleteCache }
