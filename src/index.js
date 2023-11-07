@@ -1,6 +1,6 @@
 import socket from "@cocreate/socket-client"
 
-// const cacheName = "dynamic-v2" te
+// const cacheName = "dynamic-v2"
 const cacheBtn = document.getElementById('cacheBtn');
 
 function putFile(cacheName, data) {
@@ -12,7 +12,7 @@ function putFile(cacheName, data) {
             let urls = new Map()
             for (const key of keys) {
                 const url = new URL(key.url);
-                if (url.pathname === data.pathname) {
+                if (url.pathname === data.pathname || url.pathname === '/' && data.pathname === '/index.html') {
                     if (!data.host || data.host.includes('*') || data.host.some(host => url.origin.includes(host)))
                         urls.set(key.url, true)
                 }
@@ -24,11 +24,8 @@ function putFile(cacheName, data) {
             for (let fileUrl of urls.keys()) {
                 // Create a Response object with the new file data
                 let modifiedOn = data.modified.on || data.created.on
-                if (modifiedOn instanceof Date)
-                    modifiedOn = modifiedOn.toISOString()
 
                 let source = data.src
-
                 if (/^[A-Za-z0-9+/]+[=]{0,2}$/.test(source)) {
                     source = source.replace(/^data:image\/(png|jpeg|jpg);base64,/, '');
                     source = atob(source);
@@ -47,12 +44,11 @@ function putFile(cacheName, data) {
                         'organization': data.organization_id,
                         'Last-Modified': modifiedOn,
                     }
-
                 });
 
                 // Update the cache with the new version (or add it if not in the cache)
                 cache.put(fileUrl, fileResponse).then(() => {
-                    console.log(`Cache updated: ${fileUrl}`);
+                    console.log('Cache updated: ', fileUrl, modifiedOn)
                 }).catch(error => {
                     console.error(`Cache update error: ${error}`);
                 });
@@ -73,7 +69,6 @@ function deleteFile(cacheName, fileName) {
         caches.open(cacheName).then(function (cache) {
             cache.delete(fileName).then(function (response) {
                 return response
-                // console.log(cacheName, fileName, response)
             });
         })
     }
@@ -86,7 +81,9 @@ if (cacheBtn) {
 }
 
 function fileChange(data) {
-    if (data.array !== 'files') // test
+    if (window.localStorage.getItem('cache') === 'false')
+        return
+    if (data.array !== 'files')
         return
     if (!data.object || !data.object.length)
         return
@@ -94,6 +91,7 @@ function fileChange(data) {
         return
 
     for (let i = 0; i < data.object.length; i++) {
+        console.log(data.method, data.object[i].$storage, data.object[i].name, 'isSync: ', data.isSync, data.object.length)
         putFile('dynamic-v2', data.object[i])
     }
 }
@@ -109,11 +107,14 @@ navigator.serviceWorker.addEventListener("message", (event) => {
     if (event.data.action === 'checkCache') {
         for (let file of Object.keys(event.data.returnedFromCache)) {
             const url = new URL(file);
-            const pathname = url.pathname;
-            const origin = url.origin;
+            let pathname = url.pathname;
+            // const origin = url.origin;
 
             let { organization, lastModified } = event.data.returnedFromCache[file];
             if (organization && lastModified) {
+                if (pathname === '/')
+                    pathname = '/index.html'
+
                 socket.send({
                     method: 'object.read',
                     array: 'files',
@@ -126,13 +127,13 @@ navigator.serviceWorker.addEventListener("message", (event) => {
                     status: 'await'
                 }).then((data) => {
                     if (data.object && data.object[0]) {
+                        console.log('Send to cache', pathname, lastModified, data.object[0].modified.on)
                         fileChange(data)
-                        console.log('Send to cache', pathname, lastModified)
                     }
                 })
+
             } else {
                 // TODO: handle files not retuned by @cocreate/file-server using the files header cache stratergy
-
 
                 // console.log('Send to fetch', { pathname, organization, lastModified })
                 // fetch(file)
@@ -143,21 +144,9 @@ navigator.serviceWorker.addEventListener("message", (event) => {
                 //         // Handle fetch errors
                 //         console.error('Fetch error:', error);
                 //     });
-
             }
         }
     }
 });
 
-// window.addEventListener('load', function () {
-//     if ('serviceWorker' in navigator) {
-//         navigator.serviceWorker.ready.then(function (registration) {
-//             if (registration.active) {
-//                 // Send a message to the service worker to execute a function.
-//                 registration.active.postMessage({ action: 'checkCache' });
-//             }
-//         });
-//     }
-// });
-
-export { putFile, deleteFile, deleteCache }
+export default { putFile, deleteFile, deleteCache }
