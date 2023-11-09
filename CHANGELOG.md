@@ -1,3 +1,13 @@
+## [1.1.1](https://github.com/CoCreate-app/CoCreate-cache/compare/v1.1.0...v1.1.1) (2023-11-09)
+
+
+### Bug Fixes
+
+* handle path / = /index.html ([d93cae3](https://github.com/CoCreate-app/CoCreate-cache/commit/d93cae346611e6df59bb38534dad292b47b8e0a2))
+* meta name typo ([53f8e19](https://github.com/CoCreate-app/CoCreate-cache/commit/53f8e19708f897957309306aa8db421ca358b97c))
+* update crud methods ([62f10fc](https://github.com/CoCreate-app/CoCreate-cache/commit/62f10fc2fccb6b75d1eb625ef3aa367c70f22691))
+* update host ([229502d](https://github.com/CoCreate-app/CoCreate-cache/commit/229502d167a88d588e4d3c9111e482b0df280554))
+
 # [1.1.0](https://github.com/CoCreate-app/CoCreate-cache/compare/v1.0.0...v1.1.0) (2023-11-03)
 
 
