@@ -1,3 +1,10 @@
+# [1.2.0](https://github.com/CoCreate-app/CoCreate-cache/compare/v1.1.2...v1.2.0) (2023-11-19)
+
+
+### Features
+
+* update dependecies for th latest features and bug fixes ([1b9861c](https://github.com/CoCreate-app/CoCreate-cache/commit/1b9861c6a3cc02ecff0f1be8bd5a1a27503c3f39))
+
 ## [1.1.2](https://github.com/CoCreate-app/CoCreate-cache/compare/v1.1.1...v1.1.2) (2023-11-12)
 
 
