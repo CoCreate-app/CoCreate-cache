@@ -1,3 +1,15 @@
+# [1.4.0](https://github.com/CoCreate-app/CoCreate-cache/compare/v1.3.0...v1.4.0) (2023-11-25)
+
+
+### Bug Fixes
+
+* update licensing details ([1c086a2](https://github.com/CoCreate-app/CoCreate-cache/commit/1c086a231f32d5137764b6c7a3838923f0bc8950))
+
+
+### Features
+
+* upgrade dependencies for latest features and fixes ([19c2199](https://github.com/CoCreate-app/CoCreate-cache/commit/19c21994fe3ac0f6f899364be28657c5f3f54e08))
+
 # [1.3.0](https://github.com/CoCreate-app/CoCreate-cache/compare/v1.2.0...v1.3.0) (2023-11-25)
 
 
