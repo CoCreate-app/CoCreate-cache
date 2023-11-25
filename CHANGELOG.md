@@ -1,3 +1,15 @@
+# [1.3.0](https://github.com/CoCreate-app/CoCreate-cache/compare/v1.2.0...v1.3.0) (2023-11-25)
+
+
+### Bug Fixes
+
+* update nav, edit button and css path ([c5a3d82](https://github.com/CoCreate-app/CoCreate-cache/commit/c5a3d82559a361101030e4046a95c27935399713))
+
+
+### Features
+
+* upgrade dependencies for latest features and fixes ([58467d8](https://github.com/CoCreate-app/CoCreate-cache/commit/58467d8c627fb2574460fd8bafebe1b14524cb86))
+
 # [1.2.0](https://github.com/CoCreate-app/CoCreate-cache/compare/v1.1.2...v1.2.0) (2023-11-19)
 
 
