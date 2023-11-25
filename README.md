@@ -6,7 +6,7 @@ CoCreate cache Take it for a spin in our [playground!](https://cocreate.app/docs
 ![gzip](https://img.badgesize.io/https://cdn.cocreate.app/cache/latest/CoCreate-cache.min.js?compression=gzip&style=flat-square&label=gzip&color=yellow)
 ![brotli](https://img.badgesize.io/https://cdn.cocreate.app/cache/latest/CoCreate-cache.min.js?compression=brotli&style=flat-square&label=brotli)
 ![GitHub latest release](https://img.shields.io/github/v/release/CoCreate-app/CoCreate-cache?style=flat-square)
-![GitHub contributors](https://img.shields.io/github/contributors/CoCreate-app/CoCreate-metrics-server?style=flat-square)
+![GitHub contributors](https://img.shields.io/github/contributors/CoCreate-app/CoCreate-cache?style=flat-square)
 ![License](https://img.shields.io/static/v1?style=flat-square&label=license&message=AGPL-3.0&color=green)
 ![Hiring](https://img.shields.io/static/v1?style=flat-square&label=&message=Hiring&color=blueviolet)
 
