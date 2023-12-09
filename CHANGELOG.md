@@ -1,3 +1,10 @@
+## [1.4.1](https://github.com/CoCreate-app/CoCreate-cache/compare/v1.4.0...v1.4.1) (2023-12-09)
+
+
+### Bug Fixes
+
+* typo ([0ccd87e](https://github.com/CoCreate-app/CoCreate-cache/commit/0ccd87eeac74087045965da497b615a39d365056))
+
 # [1.4.0](https://github.com/CoCreate-app/CoCreate-cache/compare/v1.3.0...v1.4.0) (2023-11-25)
 
 
