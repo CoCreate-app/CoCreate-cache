@@ -119,10 +119,10 @@ navigator.serviceWorker.addEventListener("message", (event) => {
                     method: 'object.read',
                     array: 'files',
                     $filter: {
-                        query: [
-                            { key: 'pathname', operator: '$eq', value: pathname },
-                            { key: 'modified.on', operator: '$gt', value: lastModified }
-                        ]
+                        query: {
+                            pathname: value,
+                            'modified.on': { $gt: lastModified }
+                        }
                     },
                     status: 'await'
                 }).then((data) => {
