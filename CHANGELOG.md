@@ -1,3 +1,10 @@
+## [1.4.2](https://github.com/CoCreate-app/CoCreate-cache/compare/v1.4.1...v1.4.2) (2024-01-17)
+
+
+### Bug Fixes
+
+* update to support new query system ([3bc157c](https://github.com/CoCreate-app/CoCreate-cache/commit/3bc157ce0cafc139ff8f30c3a5c91111715e926f))
+
 ## [1.4.1](https://github.com/CoCreate-app/CoCreate-cache/compare/v1.4.0...v1.4.1) (2023-12-09)
 
 
