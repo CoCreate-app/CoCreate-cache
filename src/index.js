@@ -120,7 +120,7 @@ navigator.serviceWorker.addEventListener("message", (event) => {
                     array: 'files',
                     $filter: {
                         query: {
-                            pathname: value,
+                            pathname,
                             'modified.on': { $gt: lastModified }
                         }
                     },
