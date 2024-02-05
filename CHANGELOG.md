@@ -1,3 +1,11 @@
+## [1.4.3](https://github.com/CoCreate-app/CoCreate-cache/compare/v1.4.2...v1.4.3) (2024-02-05)
+
+
+### Bug Fixes
+
+* Removed https://cdn.cocreate.app/latest/CoCreate.min.css ([40bebbc](https://github.com/CoCreate-app/CoCreate-cache/commit/40bebbc2824784fb63bb8fea6e365c89d4f33d5b))
+* typo pathname: value to pathname ([4d99cbf](https://github.com/CoCreate-app/CoCreate-cache/commit/4d99cbfe9213c578864ea57bd4290e6b90a637a0))
+
 ## [1.4.2](https://github.com/CoCreate-app/CoCreate-cache/compare/v1.4.1...v1.4.2) (2024-01-17)
 
 
