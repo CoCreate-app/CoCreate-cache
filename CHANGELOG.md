@@ -1,3 +1,10 @@
+# [1.5.0](https://github.com/CoCreate-app/CoCreate-cache/compare/v1.4.3...v1.5.0) (2024-04-28)
+
+
+### Features
+
+* improved checkCache ([09f060b](https://github.com/CoCreate-app/CoCreate-cache/commit/09f060b92f2f272959cc1551108c9fa2d0ef30c1))
+
 ## [1.4.3](https://github.com/CoCreate-app/CoCreate-cache/compare/v1.4.2...v1.4.3) (2024-02-05)
 
 
