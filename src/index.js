@@ -12,14 +12,16 @@ function putFile(cacheName, data) {
             let urls = new Map()
             for (const key of keys) {
                 const url = new URL(key.url);
-                if (url.pathname === data.pathname || url.pathname === '/' && data.pathname === '/index.html') {
+                if (url.pathname === data.pathname
+                    || url.pathname === '/' && data.pathname === '/index.html'
+                    || data.pathname.endsWith('/index.html') && url.pathname + 'index.html' === data.pathname
+                    || data.pathname.endsWith('/index.html') && !data.pathname.endsWith('/') && url.pathname + '/index.html' === data.pathname) {
                     if (!data.host || data.host.includes('*') || data.host.some(host => url.origin.includes(host)))
                         urls.set(key.url, true)
                 }
             }
 
             if (!urls.size) return
-            // urls.set(new URL(window.location.origin + data.pathname).toString(), true)
 
             for (let fileUrl of urls.keys()) {
                 // Create a Response object with the new file data
@@ -91,7 +93,7 @@ function fileChange(data) {
         return
 
     for (let i = 0; i < data.object.length; i++) {
-        console.log(data.method, data.object[i].$storage, data.object[i].name, 'isSync: ', data.isSync, data.object.length)
+        console.log('File change: ', data.method, data.object[i].$storage, data.object[i].name, 'isSync: ', data.isSync, data.object.length)
         putFile('dynamic-v2', data.object[i])
     }
 }
@@ -108,12 +110,11 @@ navigator.serviceWorker.addEventListener("message", (event) => {
         for (let file of Object.keys(event.data.returnedFromCache)) {
             const url = new URL(file);
             let pathname = url.pathname;
-            // const origin = url.origin;
 
             let { organization, lastModified } = event.data.returnedFromCache[file];
             if (organization && lastModified) {
-                if (pathname === '/')
-                    pathname = '/index.html'
+                if (pathname.endsWith('/'))
+                    pathname += 'index.html'
 
                 socket.send({
                     method: 'object.read',
@@ -127,7 +128,7 @@ navigator.serviceWorker.addEventListener("message", (event) => {
                     status: 'await'
                 }).then((data) => {
                     if (data.object && data.object[0]) {
-                        console.log('Send to cache', pathname, lastModified, data.object[0].modified.on)
+                        console.log('Check cache update: ', pathname, lastModified, data.object[0].modified.on)
                         fileChange(data)
                     }
                 })
