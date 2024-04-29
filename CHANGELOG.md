@@ -1,3 +1,10 @@
+## [1.5.1](https://github.com/CoCreate-app/CoCreate-cache/compare/v1.5.0...v1.5.1) (2024-04-29)
+
+
+### Bug Fixes
+
+* bump cocreate dependencies ([9742969](https://github.com/CoCreate-app/CoCreate-cache/commit/974296978bf9fe1584f33d99dd352f8ab2068961))
+
 # [1.5.0](https://github.com/CoCreate-app/CoCreate-cache/compare/v1.4.3...v1.5.0) (2024-04-28)
 
 
