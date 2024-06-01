@@ -50,7 +50,7 @@ function putFile(cacheName, data) {
 
                 // Update the cache with the new version (or add it if not in the cache)
                 cache.put(fileUrl, fileResponse).then(() => {
-                    console.log('Cache updated: ', fileUrl, modifiedOn)
+                    // console.log('Cache updated: ', fileUrl, modifiedOn)
                 }).catch(error => {
                     console.error(`Cache update error: ${error}`);
                 });
@@ -93,7 +93,7 @@ function fileChange(data) {
         return
 
     for (let i = 0; i < data.object.length; i++) {
-        console.log('File change: ', data.method, data.object[i].$storage, data.object[i].name, 'isSync: ', data.isSync, data.object.length)
+        // console.log('File change: ', data.method, data.object[i].$storage, data.object[i].name, 'isSync: ', data.isSync, data.object.length)
         putFile('dynamic-v2', data.object[i])
     }
 }
