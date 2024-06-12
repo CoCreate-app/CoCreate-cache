@@ -1,3 +1,12 @@
+## [1.5.2](https://github.com/CoCreate-app/CoCreate-cache/compare/v1.5.1...v1.5.2) (2024-06-12)
+
+
+### Bug Fixes
+
+* bump cocreate dependencies ([4f0a622](https://github.com/CoCreate-app/CoCreate-cache/commit/4f0a6226eabe219534dcd9d866bb7386fec7ec01))
+* comment logs ([6f3a0f4](https://github.com/CoCreate-app/CoCreate-cache/commit/6f3a0f4b8c4edf6210bbd8480fe3540f7334e393))
+* svg icon class ([647ae30](https://github.com/CoCreate-app/CoCreate-cache/commit/647ae307599d3f05fd948f2c432c196d4d78b403))
+
 ## [1.5.1](https://github.com/CoCreate-app/CoCreate-cache/compare/v1.5.0...v1.5.1) (2024-04-29)
 
 
