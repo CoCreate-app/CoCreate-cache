@@ -25,7 +25,8 @@ function putFile(cacheName, data) {
 
             for (let fileUrl of urls.keys()) {
                 // Create a Response object with the new file data
-                let modifiedOn = data.modified.on || data.created.on
+                let modifiedOn = data.modified || data.created
+                modifiedOn = modifiedOn.on || modifiedOn.on
 
                 let source = data.src
                 if (/^[A-Za-z0-9+/]+[=]{0,2}$/.test(source)) {
