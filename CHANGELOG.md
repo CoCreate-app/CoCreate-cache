@@ -1,3 +1,16 @@
+# [1.6.0](https://github.com/CoCreate-app/CoCreate-cache/compare/v1.5.2...v1.6.0) (2024-11-04)
+
+
+### Bug Fixes
+
+* handling of modifiedOn ([f47da19](https://github.com/CoCreate-app/CoCreate-cache/commit/f47da19f167169c30907599eaad3820b439289b2))
+* pretier.config.js and file formating ([35720ad](https://github.com/CoCreate-app/CoCreate-cache/commit/35720adb881d2fe228874eac374d335fbdbad420))
+
+
+### Features
+
+* add prettier.config.js and format files ([3f4cb7b](https://github.com/CoCreate-app/CoCreate-cache/commit/3f4cb7bd35d963ca166ff41370662c1f1160703a))
+
 ## [1.5.2](https://github.com/CoCreate-app/CoCreate-cache/compare/v1.5.1...v1.5.2) (2024-06-12)
 
 
