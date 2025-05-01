@@ -1,3 +1,10 @@
+## [1.6.2](https://github.com/CoCreate-app/CoCreate-cache/compare/v1.6.1...v1.6.2) (2025-05-01)
+
+
+### Bug Fixes
+
+* update [@cocreate](https://github.com/cocreate) dependencies ([0502621](https://github.com/CoCreate-app/CoCreate-cache/commit/0502621470f1f0f17e6d69d52ca8dee4c56955a7))
+
 ## [1.6.1](https://github.com/CoCreate-app/CoCreate-cache/compare/v1.6.0...v1.6.1) (2025-04-30)
 
 
