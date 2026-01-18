@@ -1,3 +1,10 @@
+## [1.6.3](https://github.com/CoCreate-app/CoCreate-cache/compare/v1.6.2...v1.6.3) (2026-01-18)
+
+
+### Bug Fixes
+
+* update worklow ([d9b18fc](https://github.com/CoCreate-app/CoCreate-cache/commit/d9b18fc08bd4a4e46a3441a903e9398582a366ae))
+
 ## [1.6.2](https://github.com/CoCreate-app/CoCreate-cache/compare/v1.6.1...v1.6.2) (2025-05-01)
 
 
